@@ -1,5 +1,4 @@
 import Vue from 'vue'
-
 import './plugins/element.js'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css';
@@ -16,17 +15,7 @@ const app = new Vue({
   },
   computed: {
     ViewComponent() {
-      const status = this.userStatus(this.currentRoute);
-      switch (status) {
-        case '404':
-          return require('./pages/404.vue');
-        case 'nl':
-          return require('./components/login.vue');
-        case 'hl':
-          return require('./components/idx.vue');
-          default:
-            return require('./pages/404.vue');
-      }
+      return routes[window.location.pathname].components;
     }
   },
   render (h) {

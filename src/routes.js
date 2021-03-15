@@ -1,7 +1,9 @@
+import App from './App.vue'
+
 export default {
     '/': {
         path: '/',
-        components: 'Login',
+        components: App,
         meta: {
             isLogin: false
         }
@@ -12,5 +14,5 @@ export default {
         meta: {
             isLogin: true
         }
-    }
+    },
 }
