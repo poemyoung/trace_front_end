@@ -18,6 +18,8 @@ export default {
   methods:{
     login() {
       // this.adm 可以拿到数据
+      // 尝试抛出has-login事件
+      this.$emit('has-login');
     }
   }
 };

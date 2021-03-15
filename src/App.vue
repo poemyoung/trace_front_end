@@ -1,16 +1,39 @@
 <template>
   <div id="app">
-      <Login :adm="hh" :pwd="nihao"/>
+      <Login :style="{display : login ? 'none' : 'block'}" v-on:has-login="hasLogin" :adm="hh" :pwd="nihao"/>
+      <Idx />
   </div>
 </template>
 
 <script>
 import Login from './components/login.vue'
+import Idx from './components/idx.vue'
 export default {
   name: 'app',
+  data() {
+    return {
+        login : false
+    }
+  },
   components: {
-    Login
+    Login,
+    Idx
+  },
+  computed : {
+    cpt() {
+      if(this.login) {
+        return "Idx";
+      }else{
+        return "Login";
+      }
+    }
+  },
+  methods : {
+    hasLogin() {
+      window.alert("已经登录了")
+    }
   }
+  
 }
 </script>
 
