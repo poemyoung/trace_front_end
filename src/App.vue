@@ -1,7 +1,7 @@
 <template>
   <div id="app">
       <Login :style="{display : login ? 'none' : 'block'}" v-on:has-login="hasLogin" :adm="hh" :pwd="nihao"/>
-      <Idx />
+      <Idx :style="{display : login ? 'block' : 'none'}"/>
   </div>
 </template>
 
@@ -20,17 +20,11 @@ export default {
     Idx
   },
   computed : {
-    cpt() {
-      if(this.login) {
-        return "Idx";
-      }else{
-        return "Login";
-      }
-    }
+    
   },
   methods : {
     hasLogin() {
-      window.alert("已经登录了")
+      this.login = true;
     }
   }
   
