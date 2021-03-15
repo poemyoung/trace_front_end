@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-      <Login :style="{display : login ? 'none' : 'block'}" v-on:has-login="hasLogin" :adm="hh" :pwd="nihao"/>
+      <Login :style="{display : login ? 'none' : 'block'}" v-on:has-login="hasLogin"/>
       <Idx :style="{display : login ? 'block' : 'none'}"/>
   </div>
 </template>
