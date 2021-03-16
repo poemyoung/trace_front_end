@@ -23,6 +23,7 @@ const app = new Vue({
           return routes[ph].components;
         case 'nl':
           if (routes[ph].meta.isLogin) {
+            window.location.href='/';
             return routes['/'].components;
           } else {
             return routes[ph].components;
@@ -44,7 +45,7 @@ const app = new Vue({
       }
       // 检查本地存储中用户是否登录过
       const login = localStorage.IsLogin;
-      if (login === 'true') {
+      if (login == 'true') {
         // 用户已登录
         return 'hl';
       } else {
