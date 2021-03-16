@@ -7,6 +7,7 @@
   </div>
 </template>
 <script>
+import Requests from '../requests'
 export default {
   name: "login",
   data() {
@@ -19,6 +20,9 @@ export default {
     login() {
       // this.adm 可以拿到数据
       // 向springboot后台发起登录请求
+      let response =  Requests.login(this.adm,this.pwd);
+      console.log(response);
+
       if(this.adm == 'admin' && this.pwd == '123456'){
         // 本地存储
         localStorage.IsLogin = true;

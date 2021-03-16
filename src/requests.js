@@ -1,10 +1,18 @@
 const baseUrl = "https://localhost:443/webapi";
 import Axios from 'axios'
 
-function login(admin,password) {
-    Axios
-    .post(baseUrl + "/login")
-    .then(response => {
-        console.log(response);
-    })
+export default {
+    login(admin,pwd) {
+        Axios
+        .post(baseUrl + "/login",{
+            name : admin,
+            password : pwd
+        })
+        .then(response => {
+            
+            console.log(response);
+        })
+    }
 }
+
+
