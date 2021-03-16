@@ -19,7 +19,6 @@ export default {
     login() {
       // this.adm 可以拿到数据
       // 向springboot后台发起登录请求
-
       if(this.adm == 'admin' && this.pwd == '123456'){
         // 本地存储
         localStorage.IsLogin = true;
