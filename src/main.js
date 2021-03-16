@@ -3,6 +3,7 @@ import './plugins/element.js'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css';
 import routes from './routes'
+import Nf404 from './pages/404.vue'
 
 Vue.use(ElementUI)
 
@@ -15,10 +16,24 @@ const app = new Vue({
   },
   computed: {
     ViewComponent() {
+      let ph = window.location.pathname;
+      let status = this.userStatus(ph);
+      switch (status) {
+        case 'hl':
+          return routes[ph].components;
+        case 'nl':
+          if (routes[ph].meta.isLogin) {
+            return routes['/'].components;
+          } else {
+            return routes[ph].components;
+          }
+          case '404':
+            return Nf404;
+      }
       return routes[window.location.pathname].components;
     }
   },
-  render (h) {
+  render(h) {
     return h(this.ViewComponent);
   },
   methods: {
