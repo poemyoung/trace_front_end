@@ -23,7 +23,7 @@ const app = new Vue({
           return routes[ph].components;
         case 'nl':
           if (routes[ph].meta.isLogin) {
-            window.location.href='/';
+            window.location.href = '/';
             return routes['/'].components;
           } else {
             return routes[ph].components;
@@ -45,11 +45,19 @@ const app = new Vue({
       }
       // 检查本地存储中用户是否登录过
       const login = localStorage.IsLogin;
-      if (login == 'true') {
+      const d = localStorage.LoginTime;
+      if (login == 'true' && this.dateExpire(d,new Date())) {
         // 用户已登录
         return 'hl';
       } else {
         return 'nl';
+      }
+    },
+    dateExpire(oldDate, newDate) {
+      if (Math.abs(newDate - oldDate) > (1000 * 60 * 60 * 24)) {
+        return false;
+      } else {
+        return true;
       }
     }
   }

@@ -22,6 +22,7 @@ export default {
       if(this.adm == 'admin' && this.pwd == '123456'){
         // 本地存储
         localStorage.IsLogin = true;
+        localStorage.LoginTime = new Date();
       }else {
         localStorage.IsLogin = false;
       }
