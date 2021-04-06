@@ -109,7 +109,7 @@ export default {
       let _this = this;
       this.timer = setInterval(() => {
           _this.submitData()
-      },3000)
+      },5000)
   },
   methods: {
     dateChoose() {
