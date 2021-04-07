@@ -24,10 +24,7 @@ const getAdminImage = images => {
 const search = (startDate,endDate,livePlace,passPlace,name,cardId,symptom) => {
     return Axios
     .post(baseUrl + "/search",{
-        startDate:startDate,
-        endDate:endDate,
         livePlace:livePlace,
-        passPlace:passPlace,
         name:name,
         cardId:cardId,
         symptom:symptom
