@@ -40,7 +40,7 @@
             <span style="color: #8492a6; font-size: 15px">症状</span>
             <div style="display:flex;flex-direction:row;text-align:center;margin:20px 20px 5px 30%">
             <el-radio label="1" v-model="symtom">有症状</el-radio>
-            <el-radio label="2" v-model="symtom">无症状</el-radio>
+            <el-radio label="2" v-model="symtom">全部</el-radio>
             </div>
             <span style="color: #8492a6; font-size: 15px">居住地</span>
             <el-input
