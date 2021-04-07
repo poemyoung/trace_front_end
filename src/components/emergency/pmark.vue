@@ -75,10 +75,7 @@ export default {
     };
   },
   mounted() {
-      let _this = this;
-      this.timer = setInterval(() => {
-          _this.submitData()
-      },5000)
+      
   },
   methods: {
     dateChoose() {

@@ -1,4 +1,4 @@
-const base = "localhost:443"
+const base = "www.poemyoung.xyz"
 const baseUrl = "https://"+base+"/webapi";
 const httpsBase = "https://"+base;
 import Axios from 'axios'
@@ -21,7 +21,7 @@ const getAdminImage = images => {
         return httpsBase + image;
     })
 }
-const search = (startDate,endDate,livePlace,passPlace,name,cardId,symptom) => {
+const search = (livePlace,name,cardId,symptom) => {
     return Axios
     .post(baseUrl + "/search",{
         livePlace:livePlace,

@@ -61,9 +61,11 @@ export default {
   watch: {},
   methods: {
     mark(val) {
+      console.log(val);
       this.marks = val;
     },
     markNormal() {
+      // 非正常标记为正常
       console.log(this.marks);
     },
     markBad() {
