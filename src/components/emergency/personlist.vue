@@ -50,6 +50,7 @@
   </div>
 </template>
 <script>
+import Reqs from '../../requests'
 export default {
   name: "personList",
   props: ["persons"],
@@ -64,12 +65,36 @@ export default {
       console.log(val);
       this.marks = val;
     },
+    getMarkIds() {
+      console.log(this.marks)
+      return this.marks.map((mk) => {
+        return mk.uid
+      })
+    },
     markNormal() {
       // 非正常标记为正常
-      console.log(this.marks);
+      let tmp = this.getMarkIds(this.marks);
+      let _this = this;
+      Reqs.mark(tmp,true)
+      .then(res => {
+        console.log(res)
+        _this.$emit('mark')
+      })
+      .catch(res => {
+        console.log(res)
+      })
     },
     markBad() {
-      console.log(this.marks);
+      let tmp = this.getMarkIds(this.marks);
+      let _this = this;
+       Reqs.mark(tmp,false)
+        .then(res => {
+        console.log(res)
+        _this.$emit('mark')
+      })
+      .catch(res => {
+        console.log(res)
+      })
     },
   },
 };

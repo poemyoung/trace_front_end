@@ -52,7 +52,7 @@
       </el-col>
     </el-row>
      <el-divider>结果</el-divider>
-    <PersonList :persons="persons" />
+    <PersonList :persons="persons" v-on:mark="mark"/>
   </div>
 </template>
 <script>
@@ -75,9 +75,12 @@ export default {
     };
   },
   mounted() {
-      
+      this.submitData()   
   },
   methods: {
+    mark() {
+      this.submitData();
+    },
     dateChoose() {
       this.startDate = this.date[0];
       this.endDate = this.date[1];

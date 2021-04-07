@@ -1,4 +1,4 @@
-const base = "www.poemyoung.xyz"
+const base = "localhost:443"
 const baseUrl = "https://"+base+"/webapi";
 const httpsBase = "https://"+base;
 import Axios from 'axios'
@@ -14,6 +14,20 @@ const downLoadImages = arr => {
 const articleDetail = aid => {
     return Axios
     .get(baseUrl + "/singlewo?aid=" + aid)
+}
+const mark = (aids,normal) => {
+    let s = "";
+    aids.map((id) => {
+        s = s + id + ",";
+    })
+    s = s.substr(s,s.length-1);
+    if(normal) {
+        return Axios
+        .get(baseUrl + "/mknormal?list="+s)
+    }else{
+        return Axios
+        .get(baseUrl + "/mknormal?list="+s)
+    }
 }
 
 const getAdminImage = images => {
@@ -75,5 +89,6 @@ export default {
     articleDetail: articleDetail,
     imageLoad : imageLoad,
     getAdminImage : getAdminImage,
-    search:search
+    search:search,
+    mark:mark
 }
