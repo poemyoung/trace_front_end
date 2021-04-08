@@ -51,7 +51,10 @@
         </el-card>
       </el-col>
     </el-row>
-     <el-divider>结果</el-divider>
+     <el-divider>
+       <span>结果</span>
+     </el-divider>
+          <el-button @click="fresh">刷新结果</el-button>
     <PersonList :persons="persons" v-on:mark="mark"/>
   </div>
 </template>
@@ -78,6 +81,9 @@ export default {
       this.submitData()   
   },
   methods: {
+    fresh() {
+      this.submitData();
+    },
     mark() {
       this.submitData();
     },

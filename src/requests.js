@@ -26,7 +26,7 @@ const mark = (aids,normal) => {
         .get(baseUrl + "/mknormal?list="+s)
     }else{
         return Axios
-        .get(baseUrl + "/mknormal?list="+s)
+        .get(baseUrl + "/mkbad?list="+s)
     }
 }
 

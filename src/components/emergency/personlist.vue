@@ -1,6 +1,7 @@
 <template>
   <div id="personList">
     <el-table
+      v-loading="loading"
       :data="persons"
       style="width: 100%"
       :highlight-current-row="true"
@@ -57,6 +58,7 @@ export default {
   data() {
     return {
       marks: [],
+      loading:false
     };
   },
   watch: {},
@@ -75,25 +77,31 @@ export default {
       // 非正常标记为正常
       let tmp = this.getMarkIds(this.marks);
       let _this = this;
+      _this.loading = true;
       Reqs.mark(tmp,true)
       .then(res => {
         console.log(res)
         _this.$emit('mark')
+        _this.loading = false;
       })
       .catch(res => {
         console.log(res)
+        _this.loading = false;
       })
     },
     markBad() {
       let tmp = this.getMarkIds(this.marks);
       let _this = this;
+      _this.loading = true;
        Reqs.mark(tmp,false)
         .then(res => {
         console.log(res)
         _this.$emit('mark')
+        _this.loading = false;
       })
       .catch(res => {
         console.log(res)
+        _this.loading = false;
       })
     },
   },
