@@ -32,16 +32,6 @@
           }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="详细信息">
-        <template slot-scope="scope">
-          <el-button
-            type="text"
-            size="medium"
-            @click="$emit('check-detail', scope.row.uid)"
-            >查看详情</el-button
-          >
-        </template>
-      </el-table-column>
       <el-table-column type="selection" width="55"> </el-table-column>
     </el-table>
     <div style="margin-top: 20px;text-align:right">
